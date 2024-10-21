@@ -11,7 +11,10 @@ class CreateLoggersTable extends Migration
         Schema::create('applogger_logger_loggers', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->timestamps();
+            $table->char('firstName',  15);
+			$table->integer('numberOfAttendence');
+			$table->date('attendenceTime');
+			$table->boolean('wasLate')
         });
     }
 
