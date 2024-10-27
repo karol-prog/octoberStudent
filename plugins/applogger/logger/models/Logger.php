@@ -12,63 +12,33 @@ class Logger extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'applogger_logger_loggers';
-
-    /**
-     * @var array Guarded fields
-     */
-    protected $guarded = ['*'];
+    public $table = 'studentsInOctober';
 
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = ['firstName', 'numberOfAttendence', 'attendenceTime', 'wasLate'];
+
+	public $firstName;
+
+    public $numberOfAttendence;
+
+    public $attendenceTime;
+
+    public $wasLate;
 
     /**
      * @var array Validation rules for attributes
      */
-    public $rules = [];
+    public $rules = [
+		'firstName' => 'required|max:15',
+		'numberOfAttendence' => 'required|integer',
+		'attendenceTime' => 'required|date',
+		'wasLate' => 'required|boolean'
+	];
 
-    /**
-     * @var array Attributes to be cast to native types
+	/**
+     * @var bool Indicates if the model should be timestamped.
      */
-    protected $casts = [];
-
-    /**
-     * @var array Attributes to be cast to JSON
-     */
-    protected $jsonable = [];
-
-    /**
-     * @var array Attributes to be appended to the API representation of the model (ex. toArray())
-     */
-    protected $appends = [];
-
-    /**
-     * @var array Attributes to be removed from the API representation of the model (ex. toArray())
-     */
-    protected $hidden = [];
-
-    /**
-     * @var array Attributes to be cast to Argon (Carbon) instances
-     */
-    protected $dates = [
-        'created_at',
-        'updated_at'
-    ];
-
-    /**
-     * @var array Relations
-     */
-    public $hasOne = [];
-    public $hasMany = [];
-    public $hasOneThrough = [];
-    public $hasManyThrough = [];
-    public $belongsTo = [];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
+    public $timestamps = false; // Disable automatic timestamps
 }

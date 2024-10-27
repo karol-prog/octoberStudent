@@ -8,7 +8,7 @@ class CreateLoggersTable extends Migration
 {
     public function up()
     {
-        Schema::create('applogger_logger_loggers', function (Blueprint $table) {
+        Schema::create('studentsInOctober', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->char('firstName',  15);
@@ -20,6 +20,6 @@ class CreateLoggersTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('applogger_logger_loggers');
+        Schema::dropIfExists('studentsInOctober');
     }
 }

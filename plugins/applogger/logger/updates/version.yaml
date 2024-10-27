@@ -1,2 +1,5 @@
 1.0.1: First version of Logger
 1.0.2: create_loggers_table
+1.0.3: add name table
+1.0.4: remove created_at and updated_at
+1.0.5: disabled timestamp
