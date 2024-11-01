@@ -8,18 +8,19 @@ class CreateLoggersTable extends Migration
 {
     public function up()
     {
-        Schema::create('studentsInOctober', function (Blueprint $table) {
+        Schema::create('students_in_october', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->char('firstName',  15);
-			$table->integer('numberOfAttendence');
-			$table->date('attendenceTime');
-			$table->boolean('wasLate')
+            $table->char('first_name',  15);
+			$table->integer('number_of_attendence');
+			$table->date('attendence_time');
+			$table->boolean('was_late');
+			$table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('studentsInOctober');
+        Schema::dropIfExists('students_in_october');
     }
 }
