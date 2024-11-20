@@ -2,39 +2,19 @@
 
 use Illuminate\Support\Facades\Route;
 
+//MODELS
 use Applogger\Logger\Models\Log;
 
+//CONTROLLERS
+use Applogger\Logger\Http\Controllers\AppLoggerController;
+
 Route::prefix('api/v1')->group(function () {
-	Route::post('/createattendence', function() {
-		$data = request()->validate([
-			'first_name' => 'required|string',
-			'number_of_attendence' => 'required|integer',
-			'attendence_time' => 'required|date',
-			'was_late' => 'required|boolean'
-		]);
 
-		$newAttendence = new Log();
-		$newAttendence->fill($data);
-		$newAttendence->save();
+	Route::get('/getallattendence', [AppLoggerController::class, 'getStudents']);
 
-		return response()->json([
-			'message' => 'Attendance created successfully'
-		]);
-	});
+	Route::get('/getattendence/{id}', [AppLoggerController::class, 'getStudent']);
 
-	Route::get('/getallattendence', function() {
-		$allAttendence = Log::all();
+	Route::post('/createattendence', [AppLoggerController::class, 'createStudent']);
 
-		return response()->json([
-			'data' => $allAttendence
-		]);
-	});
-
-	Route::get('/getattendence/{id}', function($id) {
-		$attendence = Log::find($id);
-
-		return response()->json([
-			'data' => $attendence
-		]);
-	});
+	// Route::put('/updateattendence/{id}', [AppLoggerController::class, 'updateStudent']);
 });

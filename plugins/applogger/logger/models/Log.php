@@ -17,7 +17,7 @@ class Log extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = ['first_name', 'number_of_attendence', 'attendence_time', 'was_late'];
+    protected $guarded = ['id'];
 
     /**
      * @var array Validation rules for attributes

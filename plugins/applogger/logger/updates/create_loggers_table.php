@@ -13,7 +13,7 @@ class CreateLoggersTable extends Migration
             $table->increments('id');
             $table->char('first_name',  15);
 			$table->integer('number_of_attendence');
-			$table->date('attendence_time');
+			$table->dateTime('attendence_time');
 			$table->boolean('was_late');
 			$table->timestamps();
         });
