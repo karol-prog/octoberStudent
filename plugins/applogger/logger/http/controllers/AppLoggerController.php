@@ -37,15 +37,13 @@ class AppLoggerController extends Controller {
 		]);
 	}
 
-	// public function updateStudent(AppLoggerRequest $request) {
-	// 	$data = $request->validated();
+	public function updateStudent($id) {
+		$attendenceStudent = Log::find($id);
+		$attendenceStudent->number_of_attendence++;
+		$attendenceStudent->save();
 
-	// 	$attendence = Log::find($data['id']);
-
-
-
-	// 	return response()->json([
-	// 		'message' => 'Student attendance updated successfully'
-	// 	]);
-	// }
+		return response()->json([
+			'message' => 'Student attendance updated successfully'
+		]);
+	}
 }
